@@ -1,0 +1,28 @@
+---
+- name: Setup Local server (macOS)
+  hosts: localhost
+  connection: local
+  become: true   
+
+  vars:
+    mac_packages:
+      - curl
+      - vim
+
+  tasks:
+    - name: Install packages with Homebrew 
+      ansible.builtin.command:
+        cmd: "brew install {{ item }}"
+      loop: "{{ mac_packages }}"
+      become: false
+
+    - name: Create local user 'cyberstudent' with Bash shell and home
+      ansible.builtin.user:
+        name: cyberstudent
+        shell: /bin/bash
+        create_home: yes
+        state: present
+
+    - name: Success message
+      ansible.builtin.debug:
+        msg: "Setup complete on macOS: Homebrew packages installed and user 'cyberstudent' created."

@@ -1,0 +1,29 @@
+1. Data Import:
+   - Bash: Line-by-line parsing using while loops and IFS, manual field extraction
+   - PowerShell: Object-oriented import with Import-Csv, automatic property mapping
+
+2. Date Handling:
+   - Bash: Uses date command with -d flag, manual epoch conversion
+   - PowerShell: Uses built-in DateTime objects and New-TimeSpan cmdlet
+
+3. Data Structures:
+   - Bash: Primarily uses arrays and strings, limited native data structures
+   - PowerShell: Rich object model with properties and methods
+
+4. Sorting and Filtering:
+   - Bash: Uses external commands like sort, awk, grep
+   - PowerShell: Uses object pipelines with Sort-Object, Where-Object
+
+Challenges making both scripts produce identical logic:
+
+1. Date Validation:
+   - Bash required careful date format validation with regex and date command
+   - PowerShell had more robust DateTime parsing but needed exception handling
+
+2. Risk Score Calculation:
+   - Bash required bc for floating-point arithmetic
+   - PowerShell had built-in math operations but needed rounding consistency
+
+3. Color Output:
+   - Bash uses ANSI escape codes
+   - PowerShell uses Write-Host with -ForegroundColor parameter
